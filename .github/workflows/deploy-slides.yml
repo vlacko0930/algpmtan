@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - './**'
-      - '.github/workflows/deploy-slides.yml'
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
