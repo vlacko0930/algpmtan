@@ -1,9 +1,9 @@
 {
-  "name": "algpmtan",
+  "name": "dyzio",
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build --base /algpmtan/",
+    "build": "slidev build --base /algpmtan/dyzio --out ../dist/dyzio",
     "dev": "slidev --open",
     "export": "slidev export"
   },
@@ -11,6 +11,7 @@
     "@slidev/cli": "^52.9.1",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
+    "slidev-addon-python-runner": "^0.1.3",
     "vue": "^3.5.24"
   }
 }
