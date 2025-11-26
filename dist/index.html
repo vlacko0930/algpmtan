@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L Algoritmizálás és problémamegoldás tanítása gy.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0a4f47 0%, #1a5f3a 100%);
+            min-height: 100vh;
+            padding: 40px 0;
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #1e293b;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        .card-header {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            font-weight: bold;
+            padding: 20px;
+            font-size: 1.2rem;
+        }
+        .card-body {
+            padding: 25px;
+            color: #e2e8f0;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+        }
+        .container-main {
+            background: #0f172a;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        }
+        h1 {
+            color: #10b981;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #94a3b8;
+            font-size: 1.5rem;
+            font-weight: normal;
+        }
+        .lead {
+            color: #94a3b8;
+            margin-bottom: 40px;
+        }
+        .icon-large {
+            font-size: 3rem;
+            color: #11998e;
+            margin-bottom: 20px;
+        }
+        .tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #334155;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 5px 5px 5px 0;
+            color: #cbd5e1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container-main">
+            <div class="text-center mb-5">
+                <h1><i class="bi bi-diagram-3"></i>L Algoritmizálás és problémamegoldás tanítása gy.</h1>
+                <h2>Vörös László, GM8SUF</h2>
+            </div>
+
+            <div class="row g-4">
+                <!-- Elevator Rides -->
+                <div class="col-md-6 col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <i class="bi bi-building"></i>Elevator Rides
+                        </div>
+                        <div class="card-body">
+                            <div class="text-center icon-large">
+                                <i class="bi bi-arrow-up-square"></i>
+                            </div>
+                            <p class="card-text">
+                                <strong>Probléma:</strong> Minimális liftezések száma n ember számára, figyelembe véve a lift maximális teherbírását.
+                            </p>
+                            <div class="mb-3">
+                                <span class="tag"><i class="bi bi-cpu"></i>Dinamikus programozás</span>
+                                <span class="tag"><i class="bi bi-mask"></i>Bitmaszk</span>
+                            </div>
+                            <a href="./elevator-rides/" class="btn btn-primary w-100">
+                                <i class="bi bi-play-circle"></i>Megnyitás
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dyzio -->
+                <div class="col-md-6 col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <i class="bi bi-scissors"></i>DYZIO - Rope Cutting
+                        </div>
+                        <div class="card-body">
+                            <div class="text-center icon-large">
+                                <i class="bi bi-bezier2"></i>
+                            </div>
+                            <p class="card-text">
+                                <strong>Probléma:</strong>Kötélvágási feladat bináris fa struktúrával. Hány vágás kell a legrövidebb darab elkülönítéséhez?
+                            </p>
+                            <div class="mb-3">
+                                <span class="tag"><i class="bi bi-arrow-repeat"></i>Rekurzió</span>
+                                <span class="tag"><i class="bi bi-diagram-3"></i>Bináris keresőfa</span>
+                            </div>
+                            <a href="./dyzio/" class="btn btn-primary w-100">
+                                <i class="bi bi-play-circle"></i>Megnyitás
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chicago -->
+                <div class="col-md-6 col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <i class="bi bi-geo-alt"></i>CHICAGO - 106 Miles to Chicago
+                        </div>
+                        <div class="card-body">
+                            <div class="text-center icon-large">
+                                <i class="bi bi-car-front"></i>
+                            </div>
+                            <p class="card-text">
+                                <strong>Probléma:</strong>Blues Brothers - legbiztonságosabb út Chicagóba.
+                            </p>
+                            <div class="mb-3">
+                                <span class="tag"><i class="bi bi-diagram-2"></i>Gráfelmélet</span>
+                                <span class="tag"><i class="bi bi-signpost-split"></i> Dijkstra</span>
+                            </div>
+                            <a href="./chicago/" class="btn btn-primary w-100">
+                                <i class="bi bi-play-circle"></i>Megnyitás
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5 pt-4 border-top">
+                <p class="text-muted mb-2">
+                    <i class="bi bi-github"></i> 
+                    <a href="https://github.com/vlacko0930/algpmtan" class="text-decoration-none">GitHub Repó</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
