@@ -1,628 +1,337 @@
 ---
-# try also 'default' to start simple
 theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
-title: Welcome to Slidev
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# apply UnoCSS classes to the current slide
+background: https://images.unsplash.com/photo-1494522855154-9297ac14b55f?w=1920
+title: CHICAGO - 106 Miles to Chicago
 class: text-center
-# https://sli.dev/features/drawing
 drawings:
   persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
 transition: slide-left
-# enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
-# duration of the presentation
-duration: 35min
 ---
 
-# Welcome to Slidev
+# CHICAGO
 
-Presentation slides for developers
+## 106 Miles to Chicago
 
-<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space for next page <carbon:arrow-right />
-</div>
+SPOJ - Gráf
 
-<div class="abs-br m-6 text-xl">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
-    <carbon:logo-github />
+<div class="abs-br m-6 flex gap-2">
+  <a href="https://www.spoj.com/problems/CHICAGO/" target="_blank" alt="SPOJ"
+    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
+    <carbon:link />
   </a>
 </div>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
 
 ---
 transition: fade-out
 ---
 
-# What is Slidev?
+# A történet
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+### Blues Brothers
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
-<br>
+<div class="text-sm">
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+A "Blues Brothers" filmben Elwood és Jake megpróbálják megmenteni árvaházukat azzal, hogy befizetnek **5000 dollárt adóként** a Cook County Assessor's Office-ban, **Chicagóban**.
 
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
+<v-clicks>
 
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
+- Miután megkeresték a pénzt a Palace Hotelben, el kell jutniuk Chicagóba
+- Üldözik őket
+- **106 mérföld** van Chicagóig
+- **Sötét** van
+- **Napszemüveget** viselnek 😎
 
-<!--
-Here is another comment.
--->
+**Feladat**: Találd meg a **legbiztonságosabb utat** Chicagóba!
 
----
-transition: slide-up
-level: 2
----
+</v-clicks>
 
-# Navigation
+</div>
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
+<div v-click class="mt-6 p-4 bg-blue-500 bg-opacity-20 rounded">
 
-## Keyboard Shortcuts
+**Legbiztonságosabb út** = Az az útvonal, amely **maximalizálja** annak valószínűségét, hogy nem kapják el őket!
 
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: two-cols
-layoutClass: gap-16
----
-
-# Table of contents
-
-You can use the `Toc` component to generate a table of contents for your slides:
-
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
-
-::right::
-
-<Toc text-sm minDepth="1" maxDepth="2" />
-
----
-layout: image-right
-image: https://cover.sli.dev
----
-
-# Code
-
-Use code snippets and get the highlighting directly, and even types hover!
-
-```ts [filename-example.ts] {all|4|6|6-7|9|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-import { computed, ref } from 'vue'
-
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="342" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-
-[Learn more](https://sli.dev/features/line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
-
----
-level: 2
----
-
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
-}
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
-````
+</div>
 
 ---
 
-# Components
+# Problem Statement / Feladat
 
-<div grid="~ cols-2 gap-4">
+<div class="grid grid-cols-2 gap-6 text-sm">
+
 <div>
 
-You can use Vue components directly inside your slides.
+### Input
 
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
+<v-clicks>
 
-```html
-<Counter :count="10" />
-```
+- **n** kereszteződések (2 ≤ n ≤ 100)
+- **m** utcák (1 ≤ m ≤ n×(n-1)/2)
+- Minden utca: **a, b, p**
+  - a, b: végpontok
+  - p: valószínűség, hogy eljutnak % (1-100)
+- Utcák **kétirányúak**
+- **Kezdő** pont: 1 (Palace Hotel)
+- **Cél** pont: n (Chicago)
 
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
+</v-clicks>
 
 </div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
-
----
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
 
 <div v-click>
 
-This shows up when you click the slide:
+### Output
 
-```html
-<div v-click>This shows up when you click the slide.</div>
-```
+<v-clicks>
+
+- A**legbiztonságosabb út** biztonságossága
+- Formátum: **6 tizedesjegy**
+- Példa: `61.200000 percent`
+
+</v-clicks>
+
+<div class="mt-4 p-3 bg-green-500 bg-opacity-20 rounded text-xs">
+
+
+**Az út biztonságossága** = az úton lévő összes él valószínűségének **szorzata**!
+
+P(út) = P(él₁) × P(él₂) × ... × P(élₙ)
 
 </div>
 
-<br>
-
-<v-click>
-
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div mt-20 v-click>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
+</div>
 
 </div>
 
 ---
 
-# Motions
+# Példa
 
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
+<div class="grid grid-cols-2 gap-8">
 
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
+<div>
+
+### Input
+
+```
+5 7
+5 2 100
+3 5 80
+2 3 70
+2 1 50
+3 4 90
+4 1 85
+3 1 70
+0
 ```
 
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
+<div class="text-xs mt-4">
+5 csomópont, 7 él
 </div>
 
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
+</div>
 
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
+<div v-click>
 
-[Learn more](https://sli.dev/guide/animations.html#motion)
+### Output
+
+```
+61.200000 percent
+```
+
+<div class="mt-4 text-sm p-4 bg-purple-500 bg-opacity-20 rounded">
+
+**Legbiztonságosabb út:**
+
+1 → 4 → 3 → 5
+
+**Számítás:**
+- 1→4: 85% = 0.85
+- 4→3: 90% = 0.90
+- 3→5: 80% = 0.80
+
+**P = 0.85 × 0.90 × 0.80 = 0.612 = 61.2%**
+
+</div>
+
+</div>
 
 </div>
 
 ---
 
-# $\LaTeX$
 
-$\LaTeX$ is supported out-of-box. Powered by [$\KaTeX$](https://katex.org/).
+<div class="grid grid-cols-2 gap-6">
 
-<div h-3 />
+<div>
 
-Inline $\sqrt{3x-1}+(1+x)^2$
+A példa gráf:
 
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
+```mermaid {scale: 0.7}
 graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
+    1[1: Palace Hotel] -->|85%| 4[4]
+    1 -->|50%| 2[2]
+    1 -->|70%| 3[3]
+    2 -->|100%| 5[5: Chicago]
+    2 -->|70%| 3
+    3 -->|90%| 4
+    3 -->|80%| 5
+    
+    style 1 fill:#4ecdc4,stroke:#333,stroke-width:3px
+    style 5 fill:#ff6b6b,stroke:#333,stroke-width:3px
+    style 4 fill:#ffd93d
+    style 3 fill:#ffd93d
 ```
 
 </div>
 
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
+<div v-click>
+
+<div class="p-4 bg-orange-500 bg-opacity-20 rounded text-sm">
+
+**Lehetséges utak:**
+
+<v-clicks>
+
+- 1 → 2 → 5: 0.50 × 1.00 = **50%**
+- 1 → 3 → 5: 0.70 × 0.80 = **56%**
+- 1 → 4 → 3 → 5: 0.85 × 0.90 × 0.80 = **61.2%** ✓ 
+- 1 → 2 → 3 → 5: 0.50 × 0.70 × 0.80 = **28%**
+
+</v-clicks>
+
+<div v-after class="mt-4 pt-4 border-t border-orange-300">
+<strong class="text-green-400">Legjobb út:</strong> 1 → 4 → 3 → 5
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 ---
-foo: bar
-dragPos:
-  square: 691,32,167,_,-16
----
 
-# Draggable Elements
-
-Double-click on the draggable elements to edit their positions.
-
-<br>
-
-###### Directive Usage
-
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
+```mermaid {scale: 0.75}
+graph TD
+    A[Start: Palace Hotel<br/>Node 1, P=100%] -->|85%| B[Node 4<br/>P=85%]
+    A -->|70%| C[Node 3<br/>P=70%]
+    A -->|50%| D[Node 2<br/>P=50%]
+    
+    B -->|90%| C2[Node 3<br/>P=76.5%]
+    C2 -->|80%| E[Chicago Node 5<br/>P=61.2%]
+    
+    C -->|80%| E2[Node 5<br/>P=56%]
+    D -->|100%| E3[Node 5<br/>P=50%]
+    
+    style A fill:#4ecdc4,stroke:#333,stroke-width:3px
+    style B fill:#ffd93d,stroke:#333,stroke-width:2px
+    style C2 fill:#ffd93d,stroke:#333,stroke-width:2px
+    style E fill:#ff6b6b,stroke:#333,stroke-width:4px
+    
+    linkStyle 0 stroke:#2ecc71,stroke-width:3px
+    linkStyle 2 stroke:#2ecc71,stroke-width:3px
+    linkStyle 4 stroke:#2ecc71,stroke-width:3px
 ```
 
-<br>
-
-###### Component Usage
-
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
-
-<v-drag pos="663,206,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
-  </div>
-</v-drag>
-
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-
-###### Draggable Arrow
-
-```md
-<v-drag-arrow two-way />
-```
-
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
-
----
-src: ./pages/imported-slides.md
-hide: false
----
+<div class="text-center mt-4 text-sm">
+<strong>Legjobb út:</strong> 1 → 4 (85%) → 3 (×90% = 76.5%) → 5 (×80% = <span class="text-green-400">61.2%</span>)
+</div>
 
 ---
 
-# Monaco Editor
+# Dijkstra
 
-Slidev provides built-in Monaco Editor support.
 
-Add `{monaco}` to the code block to turn it into an editor:
+<v-clicks>
 
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
+Használjunk **negatív** értékeket a priority queue-ban
+- heapq min-heap → automatikusan a legkisebb értéket veszi ki
+- Ha -P-t teszünk be, akkor a legnagyobb P-t veszi ki először!
 
-const arr = ref(emptyArray(10))
-```
+Kövessük nyomon a **maximális valószínűséget** minden csomóponthoz
+- `max_probs[i]` = a legjobb ismert valószínűség az i csomóponthoz jutásra
+- Kezdetben: `max_probs[1] = 1.0` (100% hogy az 1-es csomópontban vagyunk)
 
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
+Update szabály
+- Ha új út i-be: `new_prob = curr_prob × edge_prob`
+- Ha `new_prob > max_probs[i]`: frissítés!
 
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
+</v-clicks>
 
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
+
+
+---
+
+```python{*}{maxHeight:'420px'}
+import sys
+import heapq
+
+def solve():
+    input_data = sys.stdin.read().split()
+    
+    if not input_data:
+        return
+
+    iterator = iter(input_data)
+    
+    while True:
+        try:
+            token = next(iterator)
+            if token == '0':
+                break
+                
+            n = int(token)
+            m = int(next(iterator)) # Utcák száma
+            
+            # Szomszédsági mátrix
+            adj = [[] for _ in range(n + 1)]
+            
+            for _ in range(m):
+                u = int(next(iterator))
+                v = int(next(iterator))
+                p_int = int(next(iterator))
+                
+                p_decimal = p_int / 100.0
+                
+                adj[u].append((v, p_decimal))
+                adj[v].append((u, p_decimal))
+            
+            # Dijkstra
+            max_probs = [-1.0] * (n + 1)
+            
+            # Palace Hotel
+            max_probs[1] = 1.0
+            
+            pq = [(-1.0, 1)]
+            
+            while pq:
+                curr_p, u = heapq.heappop(pq)
+                curr_p = -curr_p
+                
+                # Ha már van jobb út, nem foglalkozunk vele
+                if curr_p < max_probs[u]:
+                    continue
+                
+                if u == n:
+                    break
+                
+                for v, edge_p in adj[u]:
+                    new_prob = curr_p * edge_p
+                    
+                    if new_prob > max_probs[v]:
+                        max_probs[v] = new_prob
+                        heapq.heappush(pq, (-new_prob, v))
+            
+            result_percentage = max_probs[n] * 100.0
+            print(f"{result_percentage:.6f} percent")
+
+        except StopIteration:
+            break
+
+if __name__ == "__main__":
+    solve()
 ```
 
 ---
@@ -630,8 +339,12 @@ layout: center
 class: text-center
 ---
 
-# Learn More
+# Köszönöm a figyelmet!
 
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
 
-<PoweredBySlidev mt-10 />
+<div class="mt-8">
+
+[SPOJ](https://www.spoj.com/problems/CHICAGO/)
+</div>
+
+

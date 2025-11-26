@@ -31,86 +31,39 @@ jobs:
         with:
           ref: main
       
-      - name: Elevator Rides
-        run: |
-          cd elevator-rides
-
       - name: Setup Node.js 
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
-
-      - name: Install dependencies
+      
+      - name: Build Elevator Rides
+        working-directory: elevator-rides
         run: |
           npm ci
-
-      - name: Build Slidev presentation
-        run: |
           npm run build
         env:
           NODE_ENV: production
       
-      - name: Dyzio
-        run: |
-          cd dyzio
-
-      - name: Setup Node.js 
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
-
-      - name: Install dependencies
+      - name: Build Dyzio
+        working-directory: dyzio
         run: |
           npm ci
-
-      - name: Build Slidev presentation
-        run: |
           npm run build
         env:
           NODE_ENV: production
 
-      - name: Give away
-        run: |
-          cd giveaway
-
-      - name: Setup Node.js 
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
-
-      - name: Install dependencies
+      - name: Build Giveaway
+        working-directory: giveaway
         run: |
           npm ci
-
-      - name: Build Slidev presentation
-        run: |
           npm run build
         env:
           NODE_ENV: production
       
-      - name: "106 miles to Chicago"
-        run: |
-          cd chicago
-
-      - name: Setup Node.js 
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
-
-      - name: Install dependencies
+      - name: Build Chicago
+        working-directory: chicago
         run: |
           npm ci
-
-      - name: Build Slidev presentation
-        run: |
           npm run build
         env:
           NODE_ENV: production
